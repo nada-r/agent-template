@@ -35,6 +35,7 @@ Entry point `src/server.ts` → routes in `src/routes/`. Tests use `app.inject()
 - `src/routes/echo.ts` is the canonical route pattern — copy its shape for new endpoints (steps: `.claude/skills/new-endpoint`).
 - Functions under ~50 lines, files under ~300 lines. Split when you exceed them.
 - Fastify, NOT Express. PostgreSQL via Prisma, NOT SQLite (when a DB is added).
+- Names reveal intent and are searchable: `error` not `err`, `response` not `res`, `parseResult` not `parsed`. No abbreviations, no single letters outside trivial loop indices.
 - Formatting is Prettier's job (`make fix`) — never hand-align code.
 
 ## Working rules

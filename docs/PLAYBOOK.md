@@ -123,6 +123,7 @@ If something must happen 100% of the time, it must not be prose:
 - gitleaks (secret scanning): https://github.com/gitleaks/gitleaks
 - Dependabot cooldown reference: https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference
 - Anthropic — prompt caching docs: https://platform.claude.com/docs/en/build-with-claude/prompt-caching
+- Robert C. Martin — Clean Code ch. 2, "Meaningful Names" (intention-revealing, searchable, no abbreviations)
 - Karpathy-style community CLAUDE.md (four working rules): https://github.com/multica-ai/andrej-karpathy-skills
 - Cline Memory Bank: https://docs.cline.bot/prompting/cline-memory-bank
 - Google SRE — Postmortem Culture: https://sre.google/sre-book/postmortem-culture/

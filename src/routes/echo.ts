@@ -10,11 +10,11 @@ type EchoBody = z.infer<typeof EchoBody>;
 
 export async function echoRoutes(app: FastifyInstance): Promise<void> {
   app.post('/api/echo', async (request, reply) => {
-    const parsed = EchoBody.safeParse(request.body);
-    if (!parsed.success) {
-      return reply.status(400).send({ error: 'Invalid body', issues: parsed.error.issues });
+    const parseResult = EchoBody.safeParse(request.body);
+    if (!parseResult.success) {
+      return reply.status(400).send({ error: 'Invalid body', issues: parseResult.error.issues });
     }
-    const body: EchoBody = parsed.data;
-    return { echo: body.message };
+    const echoRequest: EchoBody = parseResult.data;
+    return { echo: echoRequest.message };
   });
 }
