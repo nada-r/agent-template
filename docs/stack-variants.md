@@ -52,6 +52,14 @@ mypy strict passes, ruff formats" - keep the same pruning discipline.
   agents cannot guess these and version drift is the #1 Anchor footgun.
 - Verified on-chain facts (program IDs, account sizes, decimals) go in `MEMORY.md` → "Verified facts". NEVER guessed.
 
+## API docs for humans (owner's convention)
+
+When colleagues need to browse the API: `@fastify/swagger` generates the OpenAPI spec
+from the route schemas, `@scalar/fastify-api-reference` serves it as a readable page.
+Zod schemas stay the single source of truth; wire them via `fastify-type-provider-zod`
+so the spec derives from the same schemas the routes validate with. Respect the 24h
+cooldown when installing.
+
 ## Adding Prisma + PostgreSQL (the default DB path)
 
 1. `npm i prisma @prisma/client && npx prisma init`
