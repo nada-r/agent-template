@@ -32,6 +32,16 @@ The single governing constraint (Anthropic): _the context window is the scarce r
 Layer 1 stays tiny; everything else loads just-in-time, is enforced mechanically, or is
 verified by the agent itself.
 
+## The rules the agent works under
+
+The heart of [`AGENTS.md`](AGENTS.md), always loaded:
+
+- **Ask before assuming** — surface assumptions before coding; restate the deliverable first. **Simplest solution first**; **surgical changes** only. (After Karpathy's working principles.)
+- **Verify data freshness before concluding** — which DB, which env, is the process current. Never guess external facts; verify, then record in `MEMORY.md`.
+- **`make check` green before anything is called done** — and show the output.
+- **All prose follows [Orwell's six rules](AGENTS.md#writing-style--prose-not-code)** — short words, active voice, cut what you can. No "comprehensive", no "robust", no "successfully".
+- **Never install a package published less than 48h ago** — supply-chain cooldown.
+
 ## Quickstart — new project from this template
 
 ```bash
