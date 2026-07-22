@@ -1,25 +1,45 @@
 # Architecture
 
 <!-- LIVING document — the detailed counterpart to MEMORY.md's sketch.
-     Record MEASURED facts (rate limits you hit, deploy quirks you debugged, costs)
-     with dates. An architecture doc that only holds intentions goes stale;
-     one that holds measurements compounds. -->
+     Order follows C4: context (level 1) → containers (level 2) → components (level 3).
+     Record MEASURED facts (rate limits hit, deploy quirks, costs) with dates —
+     intentions go stale; measurements compound.
+     EXAMPLE content below describes a typical fullstack shape — replace with the
+     real system when scaffolding. -->
 
-## System diagram
+## System context — who uses it, what it talks to
+
+_The whole system, including parts that live in OTHER repos or that don't exist yet.
+An agent reading only this section should understand what the project is for._
+
+- **Users:** _who, and through what (browser, bot, cron, another service)_
+- **This repo:** _which box(es) below it implements_
+- **Sibling repos:** _frontend / execution / data repos that belong to the same system_
 
 ```
-                ┌─────────────────────────────┐
-   client ────▶ │  Fastify  (src/server.ts)   │
-                │   ├── /api/health           │
-                │   └── /api/echo   (Zod)     │
-                └──────────┬──────────────────┘
-                           │
-                 [ db / external APIs — none yet ]
+                        ┌─────────────── the system ────────────────────┐
+   user ──▶ frontend ──▶│  API (THIS REPO)  ──▶  PostgreSQL             │
+   (browser) (Vercel,   │  Fastify, Railway      (Railway)              │
+    sibling repo)       │        │                                      │
+                        │        ├──▶ external APIs (rate-limited!)     │
+                        │        └──▶ workers / cron jobs               │
+                        └───────────────────────────────────────────────┘
 ```
 
 Data flow: request → route handler → Zod parse at the boundary → logic → typed response.
 
-## Components
+## Containers — deployable units
+
+_One row per thing that runs somewhere. Mark what THIS repo owns._
+
+| Unit         | Runs on | Repo         | Responsibility                            |
+| ------------ | ------- | ------------ | ----------------------------------------- |
+| API          | Railway | **this one** | HTTP boundary, validation, business logic |
+| Frontend     | Vercel  | _sibling_    | UI; calls the API only                    |
+| PostgreSQL   | Railway | —            | State (when Prisma is added)              |
+| Cron/workers | Railway | **this one** | Scheduled jobs — never in-process loops   |
+
+## Components — inside this repo
 
 | Component      | Location        | Responsibility                                   |
 | -------------- | --------------- | ------------------------------------------------ |
@@ -29,7 +49,8 @@ Data flow: request → route handler → Zod parse at the boundary → logic →
 
 ## External services & measured limits
 
-_Record every external dependency with its MEASURED behavior, dated:_
+_Every external dependency with its MEASURED behavior, dated. Also mirror durable
+facts into MEMORY.md "Verified facts"._
 
 | Date | Service | Fact (rate limit / quota / latency / cost) | How measured |
 | ---- | ------- | ------------------------------------------ | ------------ |
@@ -37,10 +58,10 @@ _Record every external dependency with its MEASURED behavior, dated:_
 
 ## Deployment
 
-- Convention: Railway (backend) / Vercel (frontend). Railway injects `PORT`; server binds `0.0.0.0`.
-- Health check endpoint: `GET /api/health`.
-- _Record actual deploy gotchas here as they are discovered, with dates._
+- Convention: Railway (backend, injects `PORT`, server binds `0.0.0.0`) / Vercel (frontend).
+- Health check: `GET /api/health`. Frontend → API URL is explicit env config, never hardcoded.
+- _Record actual deploy gotchas here as discovered, with dates._
 
 ## Cost decisions
 
-_Dated log of decisions with a cost dimension (instance sizes, API tiers, storage choices) and the reasoning._
+_Dated log of decisions with a cost dimension (instance sizes, API tiers, storage) and the reasoning._
