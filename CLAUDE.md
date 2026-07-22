@@ -1,5 +1,7 @@
 @AGENTS.md
 
+_The line above inlines AGENTS.md at session start — Claude Code's `@` import. Shared rules live there; only Claude-specific behavior lives below (ADR-0001)._
+
 # Claude-specific instructions
 
 <!-- AGENTS.md (imported above) is the single source of truth.

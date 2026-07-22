@@ -2,7 +2,7 @@
   "name": "project-name",
   "version": "0.1.0",
   "private": true,
-  "description": "Rename me. Scaffolded from claudeTemplate.",
+  "description": "Rename me. Scaffolded from agent-template.",
   "type": "module",
   "engines": {
     "node": ">=22"

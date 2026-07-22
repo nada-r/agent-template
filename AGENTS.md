@@ -10,8 +10,8 @@
 Fastify API server in strict TypeScript (ESM). Zod validates every external boundary.
 Entry point `src/server.ts` → routes in `src/routes/`. Tests use `app.inject()` (no live server).
 
-> This repo is a template. After scaffolding a real project: rename in `package.json`,
-> rewrite this overview, and delete `docs/PLAYBOOK.md` if you don't want the teaching material.
+> This repo is a template. After scaffolding a real project, follow the
+> "After scaffolding" checklist in README.md — starting with rewriting this overview.
 
 ## Setup commands
 

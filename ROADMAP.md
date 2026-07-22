@@ -15,7 +15,7 @@
 
 ## Now
 
-_1–3 items max. If an item sits here more than a few weeks, it is too big (split it) or not actually Now (move it)._
+_1–3 items max. If an item sits here more than a few weeks, it is too big (split it) or not actually Now (move it). Appetite = the time you give it before rethinking (small ≈ 1-2 weeks, big ≈ 6)._
 
 - [ ] _(example)_ Users can create an account and log in — appetite: small (~1-2wk).
       Verify: e2e test signup → login → `GET /api/me` returns the user; `make check` green.

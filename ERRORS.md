@@ -18,7 +18,7 @@
 > **Template note:** the three entries below are examples borrowed from other projects to
 > show the format. Delete them when scaffolding a real project.
 
-## [example] 2026-07-19 — FIXED: wrong P&L reported from stale local indexer
+## _(example)_ 2026-07-19 — FIXED: wrong P&L reported from stale local indexer
 
 - Symptom: Deposited/P&L amounts wrong; had to be flagged twice before anyone doubted the data source.
 - Root cause: never-restarted local indexer serving old code — the numbers were confidently produced from a stale process, not a calculation bug.
@@ -26,7 +26,7 @@
 - Earlier catch: print the data source + process start time alongside any money number.
 - Dead ends: 2 rounds auditing the P&L math — the math was fine.
 
-## [example] 2026-06-20 — ROOT CAUSE: deposit stuck 10h, service blind to pending assets
+## _(example)_ 2026-06-20 — ROOT CAUSE: deposit stuck 10h, service blind to pending assets
 
 - Symptom: first $100 deposit pending ~10h; curator service never emitted a tx (nonce = 0).
 - Root cause: SDK v0.5-era `getPendingAssets()` returns 0 on a v0.6 vault — service healthy, 0 errors, structurally blind. Earlier "boot crash" hypothesis was WRONG.
@@ -34,7 +34,7 @@
 - Earlier catch: integration test asserting detection fires on a real pending deposit, not on SDK mocks.
 - Dead ends: reading deploy logs for a crash that never happened.
 
-## [example] 2026-02-xx — FIXED: Vercel prerender crash, React 18/19 conflict
+## _(example)_ 2026-02-xx — FIXED: Vercel prerender crash, React 18/19 conflict
 
 - Symptom: `TypeError: Cannot read properties of null (reading 'useRef')` in prerender workers.
 - Root cause: `node-linker=hoisted` → prerender workers resolve React from monorepo root (v18) while app uses v19.
