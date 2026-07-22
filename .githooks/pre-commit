@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# Pre-commit gate: block secrets from entering git history.
+# Wired by `make setup` (git config core.hooksPath .githooks).
+# Uses gitleaks when installed (150+ patterns + entropy, plus .gitleaks.toml wallet rules);
+# falls back to a basic regex scan otherwise, so the gate never silently disappears.
+# `./.githooks/pre-commit --scan-all` scans the whole tree (see `make secrets`).
+set -uo pipefail
+
+MODE="${1:-staged}"
+
+if command -v gitleaks >/dev/null 2>&1; then
+  config_flag=""
+  [ -f .gitleaks.toml ] && config_flag="--config .gitleaks.toml"
+
+  if [ "$MODE" = "--scan-all" ]; then
+    # shellcheck disable=SC2086
+    gitleaks dir . --no-banner --redact $config_flag
+  else
+    # shellcheck disable=SC2086
+    git diff --cached | gitleaks stdin --no-banner --redact $config_flag
+  fi
+  status=$?
+  if [ $status -ne 0 ]; then
+    echo "" >&2
+    echo "✖ gitleaks found possible secrets. Rotate anything real BEFORE cleaning up." >&2
+    echo "Confirmed false positive: add it to .gitleaks.toml [allowlist], or git commit --no-verify" >&2
+    exit 1
+  fi
+  exit 0
+fi
+
+# ── Fallback: basic regex scan (no gitleaks installed) ──
+# Covers common credential shapes only. Install gitleaks for real coverage: brew install gitleaks
+PATTERNS='sk-[a-zA-Z0-9_-]{20,}|ghp_[a-zA-Z0-9]{36}|github_pat_[a-zA-Z0-9_]{22,}|AKIA[0-9A-Z]{16}|hooks\.slack\.com/services/|eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----'
+
+if [ "$MODE" = "--scan-all" ]; then
+  matches=$(git ls-files -z | xargs -0 grep -InE "$PATTERNS" 2>/dev/null | grep -v '\.githooks/pre-commit' || true)
+else
+  matches=$(git diff --cached -U0 | grep -E '^\+' | grep -Ev '^\+\+\+' | grep -nE "$PATTERNS" || true)
+fi
+
+if [ -n "$matches" ]; then
+  echo "✖ Possible secret detected (regex fallback — install gitleaks for full coverage):" >&2
+  echo "$matches" | head -5 >&2
+  echo "" >&2
+  echo "If this is a confirmed false positive: git commit --no-verify" >&2
+  exit 1
+fi
+
+exit 0
