@@ -1,4 +1,4 @@
-# Editor-agnostic formatting baseline — https://editorconfig.org
+# Editor-agnostic formatting baseline - https://editorconfig.org
 root = true
 
 [*]

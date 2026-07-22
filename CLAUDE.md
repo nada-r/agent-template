@@ -1,6 +1,6 @@
 @AGENTS.md
 
-_The line above inlines AGENTS.md at session start — Claude Code's `@` import. Shared rules live there; only Claude-specific behavior lives below (ADR-0001)._
+_The line above inlines AGENTS.md at session start - Claude Code's `@` import. Shared rules live there; only Claude-specific behavior lives below (ADR-0001)._
 
 # Claude-specific instructions
 
@@ -10,17 +10,17 @@ _The line above inlines AGENTS.md at session start — Claude Code's `@` import.
 ## Workflow
 
 - Non-trivial tasks: Explore → Plan → Code → Commit. Start in plan mode; if you could describe the diff in one sentence, skip the plan.
-- Larger features: interview me first (`/interview-spec`), write the result to `SPEC.md` (created on demand — doesn't exist until then), then implement from the spec in a fresh session.
-- After a series of edits, run `make check` and show the output — evidence, not assertion.
+- Larger features: interview me first (`/interview-spec`), write the result to `SPEC.md` (created on demand - doesn't exist until then), then implement from the spec in a fresh session.
+- After a series of edits, run `make check` and show the output - evidence, not assertion.
 - Before declaring a task done, use the `verifier` subagent. For review, use `code-reviewer` (fresh context, sees only the diff).
 - Use subagents for high-volume output (full test-suite runs, large searches) to keep this context clean.
 - After ~3 failed attempts at the same fix: stop, record the attempts in ERRORS.md, question the approach, and escalate to me.
 
 ## Memory protocol
 
-- `MEMORY.md` (context, verified facts, lessons) and `ERRORS.md` (bugs with root causes, failed approaches) are the project's long-term memory. These are the repo-root files, NOT your auto-memory directory. Update them after every significant task — `/update-memory` walks through it.
+- `MEMORY.md` (context, verified facts, lessons) and `ERRORS.md` (bugs with root causes, failed approaches) are the project's long-term memory. These are the repo-root files, NOT your auto-memory directory. Update them after every significant task - `/update-memory` walks through it.
 - Before debugging anything that feels familiar, read ERRORS.md first.
-- If MEMORY.md can't hold its ~200-line cap despite pruning (or ERRORS.md outgrows grep), graduate to the SQLite kb — see the `knowledge-base` skill and ADR-0002.
+- If MEMORY.md can't hold its ~200-line cap despite pruning (or ERRORS.md outgrows grep), graduate to the SQLite kb - see the `knowledge-base` skill and ADR-0002.
 - NEVER guess external facts (decimals, indices, rate limits, API shapes). Verify against the source, then record in MEMORY.md → "Verified facts".
 
 ## Reporting
@@ -29,5 +29,5 @@ _The line above inlines AGENTS.md at session start — Claude Code's `@` import.
 
 ## Self-improvement
 
-- When I correct you, or a review catches something you should have known: add one line to AGENTS.md (shared rules) or this file (Claude-only). Apply the pruning test — budget ~1k tokens per file; when a new model releases, re-prune (smarter models need fewer instructions).
-- If a rule must hold 100% of the time, don't write prose — add a hook in `.claude/settings.json` instead.
+- When I correct you, or a review catches something you should have known: add one line to AGENTS.md (shared rules) or this file (Claude-only). Apply the pruning test - budget ~1k tokens per file; when a new model releases, re-prune (smarter models need fewer instructions).
+- If a rule must hold 100% of the time, don't write prose - add a hook in `.claude/settings.json` instead.

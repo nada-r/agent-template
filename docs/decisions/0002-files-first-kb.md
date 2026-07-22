@@ -9,7 +9,7 @@ For projects with a large knowledge base, a Claude ambassador (Olivier Legris) r
 a small SQL database with query tools instead of markdown files. Anthropic's evidence cuts
 both ways: Claude Code dropped its RAG/vector pipeline because plain agentic search over
 files "outperformed everything" (Boris Cherny), and Anthropic's entire memory system is
-file-based — but the memory-tool docs explicitly support database backends, and this dev's
+file-based - but the memory-tool docs explicitly support database backends, and this dev's
 own repos show the file failure mode: 116-148KB append-only knowledge files that became
 consultation burdens accumulating unresolved contradictions.
 
@@ -19,7 +19,7 @@ Markdown files (MEMORY.md / ERRORS.md, two-layer distilled+log pattern) are the 
 Graduate structured facts and incidents to a SQLite kb (via the `knowledge-base` skill)
 only when a measured threshold is hit: MEMORY.md can't hold its ~200-line cap despite
 pruning, ERRORS.md exceeds ~50KB, or cross-cutting queries are needed. Prose never
-graduates — SQL is for what you query, files are for what you read.
+graduates - SQL is for what you query, files are for what you read.
 
 ## Alternatives considered
 
@@ -35,4 +35,4 @@ graduates — SQL is for what you query, files are for what you read.
   is ready in `.claude/skills/knowledge-base/`.
 - The threshold is objective (line/size caps already enforced by the memory protocol),
   so the decision to graduate is observable, not a matter of taste.
-- Committed artifact is a diffable `kb.sql` dump, not a binary — git stays reviewable.
+- Committed artifact is a diffable `kb.sql` dump, not a binary - git stays reviewable.

@@ -1,5 +1,5 @@
 # Extends gitleaks' default ruleset (150+ patterns) with wallet-key patterns
-# that generic scanners miss — the highest-stakes secrets in trading repos.
+# that generic scanners miss - the highest-stakes secrets in trading repos.
 [extend]
 useDefault = true
 

@@ -17,7 +17,7 @@ Check for:
 
 Flag ONLY issues that affect correctness, security, or stated requirements. Do NOT flag:
 pre-existing issues outside the diff, nitpicks a senior engineer would not raise, anything
-the linter already catches, or speculative refactors. Only high-signal findings — false
+the linter already catches, or speculative refactors. Only high-signal findings - false
 positives erode trust in the whole review. Before reporting a finding, re-check it against
 the actual code; drop any you cannot confirm. For each confirmed finding give: file:line,
 the concrete failure scenario, and a suggested fix. If the diff is clean, say so plainly.

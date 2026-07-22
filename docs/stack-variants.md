@@ -43,12 +43,12 @@ check: lint typecheck test ## Full gate
 ```
 
 AGENTS.md changes: swap the commands section; style rules become "type hints everywhere,
-mypy strict passes, ruff formats" — keep the same pruning discipline.
+mypy strict passes, ruff formats" - keep the same pruning discipline.
 
 ## Rust / Solana (Anchor programs)
 
 - Gate: `cargo fmt --check && cargo clippy -- -D warnings && cargo test` (+ `anchor test` for programs).
-- AGENTS.md must record the toolchain pins (`rust-toolchain.toml`, Anchor + Solana CLI versions) —
+- AGENTS.md must record the toolchain pins (`rust-toolchain.toml`, Anchor + Solana CLI versions) -
   agents cannot guess these and version drift is the #1 Anchor footgun.
 - Verified on-chain facts (program IDs, account sizes, decimals) go in `MEMORY.md` → "Verified facts". NEVER guessed.
 
@@ -62,7 +62,7 @@ mypy strict passes, ruff formats" — keep the same pruning discipline.
 ## Monorepo (pnpm + Turborepo)
 
 - Root AGENTS.md holds workspace-wide rules only; each `apps/*` and `packages/*` gets its own
-  short nested AGENTS.md (nearest file wins — every major tool honors this).
+  short nested AGENTS.md (nearest file wins - every major tool honors this).
 - Root CLAUDE.md still bridges with `@AGENTS.md`; per-package CLAUDE.md files load on demand
   when the agent touches files there.
 - Pin the package manager in root `package.json` (`"packageManager": "pnpm@x.y.z"`).
@@ -73,4 +73,4 @@ mypy strict passes, ruff formats" — keep the same pruning discipline.
 - Same layers; gate adds `next build` (the real typecheck for the app router) and Playwright
   for the verification loop: agents iterate against screenshots (paste design → implement →
   screenshot → compare → fix).
-- Deploy: Vercel. Keep server-only secrets out of `NEXT_PUBLIC_*` — worth a line in AGENTS.md.
+- Deploy: Vercel. Keep server-only secrets out of `NEXT_PUBLIC_*` - worth a line in AGENTS.md.

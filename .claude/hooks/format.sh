@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PostToolUse hook: auto-format any file Claude just edited.
-# Deterministic enforcement — formatting is a hook, not an advisory CLAUDE.md rule.
+# Deterministic enforcement - formatting is a hook, not an advisory CLAUDE.md rule.
 # Receives hook JSON on stdin; extracts the edited file path with jq.
 set -uo pipefail
 

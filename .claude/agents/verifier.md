@@ -30,4 +30,4 @@ Report format:
 - Evidence: the commands you ran and their real output (condensed to the relevant lines)
 - If NOT DONE: the specific gaps, ranked by severity
 
-Only high-volume output (full test logs) should stay in your context — return a condensed report.
+Only high-volume output (full test logs) should stay in your context - return a condensed report.

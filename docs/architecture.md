@@ -1,13 +1,13 @@
 # Architecture
 
-<!-- LIVING document — the detailed counterpart to MEMORY.md's sketch.
+<!-- LIVING document - the detailed counterpart to MEMORY.md's sketch.
      Order follows C4: context (level 1) → containers (level 2) → components (level 3).
-     Record MEASURED facts (rate limits hit, deploy quirks, costs) with dates —
+     Record MEASURED facts (rate limits hit, deploy quirks, costs) with dates  -
      intentions go stale; measurements compound.
-     EXAMPLE content below describes a typical fullstack shape — replace with the
+     EXAMPLE content below describes a typical fullstack shape - replace with the
      real system when scaffolding. -->
 
-## System context — who uses it, what it talks to
+## System context - who uses it, what it talks to
 
 _The whole system, including parts that live in OTHER repos or that don't exist yet.
 An agent reading only this section should understand what the project is for._
@@ -28,7 +28,7 @@ An agent reading only this section should understand what the project is for._
 
 Data flow: request → route handler → Zod parse at the boundary → logic → typed response.
 
-## Containers — deployable units
+## Containers - deployable units
 
 _One row per thing that runs somewhere. Mark what THIS repo owns._
 
@@ -36,10 +36,10 @@ _One row per thing that runs somewhere. Mark what THIS repo owns._
 | ------------ | ------- | ------------ | ----------------------------------------- |
 | API          | Railway | **this one** | HTTP boundary, validation, business logic |
 | Frontend     | Vercel  | _sibling_    | UI; calls the API only                    |
-| PostgreSQL   | Railway | —            | State (when Prisma is added)              |
-| Cron/workers | Railway | **this one** | Scheduled jobs — never in-process loops   |
+| PostgreSQL   | Railway | -            | State (when Prisma is added)              |
+| Cron/workers | Railway | **this one** | Scheduled jobs - never in-process loops   |
 
-## Components — inside this repo
+## Components - inside this repo
 
 | Component      | Location        | Responsibility                                   |
 | -------------- | --------------- | ------------------------------------------------ |

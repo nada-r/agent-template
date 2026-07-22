@@ -1,27 +1,27 @@
 ---
 name: security-audit
-description: Audit this repo against the security checklist — secrets, supply chain, agent safety. Use when asked for a security check, before a first deploy, or when adopting an old repo.
+description: Audit this repo against the security checklist - secrets, supply chain, agent safety. Use when asked for a security check, before a first deploy, or when adopting an old repo.
 ---
 
 # Security audit
 
 Run each check, collect evidence, report findings ranked by severity. Degrade gracefully:
-if a tool is missing, say so and use the fallback — never skip a category silently.
+if a tool is missing, say so and use the fallback - never skip a category silently.
 
 ## 1. Secrets in the repo
 
-- `git ls-files | grep -E '\.env($|\.)' ` — only `.env.example` may appear.
+- `git ls-files | grep -E '\.env($|\.)' ` - only `.env.example` may appear.
 - Full scan: `gitleaks dir . --no-banner --redact` (fallback: `make secrets` or grep for
   `sk-`, `ghp_`, `AKIA`, `PRIVATE KEY`, `hooks.slack.com`).
 - History scan if gitleaks exists: `gitleaks git . --no-banner --redact`.
-- Wallet repos: grep for key-shaped literals — EVM hex keys near `private_key`-like names,
+- Wallet repos: grep for key-shaped literals - EVM hex keys near `private_key`-like names,
   Solana 64-byte JSON arrays, mnemonics. Check test fixtures too.
-- Any hit on a REAL secret: report "rotate first, then clean history" — in that order.
+- Any hit on a REAL secret: report "rotate first, then clean history" - in that order.
 
 ## 2. Supply chain
 
 - Lockfile committed? CI uses `npm ci` (or frozen-lockfile equivalent)?
-- Recently added/bumped deps: `npm view <pkg> time --json | tail -5` — flag any version
+- Recently added/bumped deps: `npm view <pkg> time --json | tail -5` - flag any version
   published <24h before it was installed.
 - `npm audit --audit-level=high` (or the ecosystem equivalent).
 - Dependabot/Renovate present, with a cooldown configured?

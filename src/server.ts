@@ -11,7 +11,7 @@ export function buildServer(): FastifyInstance {
 }
 
 // Start listening only when run directly (`npm run dev` / `npm start`),
-// not when imported by tests — tests use app.inject() instead.
+// not when imported by tests - tests use app.inject() instead.
 if (import.meta.url === `file://${process.argv[1]}`) {
   const app = buildServer();
   const port = Number(process.env.PORT ?? 3000);

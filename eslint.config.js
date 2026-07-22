@@ -8,7 +8,7 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   prettier,
   {
-    // Project rules that differ from defaults — mirrored in AGENTS.md "Code style".
+    // Project rules that differ from defaults - mirrored in AGENTS.md "Code style".
     files: ['**/*.ts'],
     rules: {
       '@typescript-eslint/no-explicit-any': 'error',

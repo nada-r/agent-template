@@ -40,7 +40,7 @@ else
 fi
 
 if [ -n "$matches" ]; then
-  echo "✖ Possible secret detected (regex fallback — install gitleaks for full coverage):" >&2
+  echo "✖ Possible secret detected (regex fallback - install gitleaks for full coverage):" >&2
   echo "$matches" | head -5 >&2
   echo "" >&2
   echo "If this is a confirmed false positive: git commit --no-verify" >&2

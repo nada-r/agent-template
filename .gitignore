@@ -5,7 +5,7 @@ node_modules/
 dist/
 coverage/
 
-# Environment — .env.example is the only env file that belongs in git
+# Environment - .env.example is the only env file that belongs in git
 .env
 .env.*
 !.env.example

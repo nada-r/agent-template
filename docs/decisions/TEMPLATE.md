@@ -5,7 +5,7 @@
 
 ## Context
 
-What situation forces a decision? Facts only — constraints, requirements, measurements.
+What situation forces a decision? Facts only - constraints, requirements, measurements.
 
 ## Decision
 

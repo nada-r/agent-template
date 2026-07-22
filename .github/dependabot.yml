@@ -1,5 +1,5 @@
 # Dependency updates with a supply-chain cooldown.
-# The cooldown delays version bumps until a release has been public for N days —
+# The cooldown delays version bumps until a release has been public for N days  -
 # npm worm attacks (Shai-Hulud class) spread within hours of a compromised publish,
 # and are usually caught within a day or two. Security updates BYPASS the cooldown.
 version: 2

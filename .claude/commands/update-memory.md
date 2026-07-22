@@ -12,4 +12,4 @@ Review this session and update the project memory:
 4. Dead ends? Add to ERRORS.md "Failed approaches": what we tried, why it failed, what worked.
 5. Lessons? Add to MEMORY.md "Lessons learned". If a lesson is a rule the agent should always
    follow, also add one line to AGENTS.md (and apply the pruning test).
-6. Prune anything stale in both files. They are memory, not changelogs — keep them scannable.
+6. Prune anything stale in both files. They are memory, not changelogs - keep them scannable.

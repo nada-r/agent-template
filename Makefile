@@ -43,7 +43,7 @@ secrets: ## Scan the working tree for secret-looking strings
 clean: ## Remove build artifacts
 	rm -rf dist coverage
 
-# ── Database targets (uncomment when Prisma is added — see docs/stack-variants.md) ──
+# ── Database targets (uncomment when Prisma is added - see docs/stack-variants.md) ──
 # db-generate: ## Regenerate Prisma client
 # 	npx prisma generate
 # db-migrate: ## Create + apply a migration locally

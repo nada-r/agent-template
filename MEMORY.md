@@ -1,4 +1,4 @@
-# MEMORY.md — project memory
+# MEMORY.md - project memory
 
 <!-- Agent-maintained. The DISTILLED layer: curated facts, not a log (ERRORS.md holds
      incidents; git holds history). Rules that keep this file useful:
@@ -7,14 +7,14 @@
      - Every entry is dated. Undated entries can't be judged stale, so nobody prunes them.
      - A fact without provenance (source + how verified) doesn't belong here.
      - Same correction needed twice → promote to AGENTS.md as a rule, remove here.
-     - EXAMPLE entries below are from other projects — delete them when scaffolding. -->
+     - EXAMPLE entries below are from other projects - delete them when scaffolding. -->
 
 > **Template note:** entries marked _(example)_ are borrowed from other projects to show
 > the format. Delete them when scaffolding a real project.
 
 ## Current focus
 
-_The volatile section — what's in flight right now, next step, open question. Rewrite freely; this is the only section that gets overwritten rather than accreted._
+_The volatile section - what's in flight right now, next step, open question. Rewrite freely; this is the only section that gets overwritten rather than accreted._
 
 - (nothing yet)
 
@@ -32,14 +32,14 @@ client ──▶ Fastify (src/server.ts) ──▶ routes (src/routes/*) ──�
 
 ## Stack rationale
 
-_Why each major dependency — one line each. Prevents re-litigating decisions._
+_Why each major dependency - one line each. Prevents re-litigating decisions._
 
 - Fastify over Express: performance + schema-first design (project convention).
 - Zod: single source of truth for boundary types via `z.infer`.
 
 ## Verified facts
 
-_External facts checked against their source. NEVER guess these — verify, then record: value + date + source + how verified._
+_External facts checked against their source. NEVER guess these - verify, then record: value + date + source + how verified._
 
 | Date                   | Fact                                                                                                | Source / how verified                           |
 | ---------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
