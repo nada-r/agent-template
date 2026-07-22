@@ -2,6 +2,7 @@
 description: Analyze and fix a GitHub issue end-to-end
 argument-hint: <issue-number>
 disable-model-invocation: true
+allowed-tools: Bash(gh issue view:*), Bash(make check), Bash(npx vitest:*), Bash(git add:*), Bash(git commit:*), Bash(git push), Bash(gh pr create:*)
 ---
 
 Analyze and fix GitHub issue $ARGUMENTS:

@@ -1,6 +1,6 @@
 ---
 name: knowledge-base
-description: Graduate project memory from markdown files to a queryable SQLite knowledge base. Use when MEMORY.md exceeds its ~200-line cap despite pruning, ERRORS.md grows past grep-friendliness (~50KB), or cross-cutting queries are needed ("all facts about X since date Y").
+description: Graduate project memory from markdown files to a queryable SQLite knowledge base. Use when MEMORY.md exceeds its ~200-line cap despite pruning, ERRORS.md grows past grep-friendliness (~50KB), or cross-cutting queries are needed. Do NOT use while the markdown files are under their caps — files stay the default.
 ---
 
 # SQLite knowledge base (the scale path)

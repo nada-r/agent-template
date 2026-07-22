@@ -1,6 +1,6 @@
 ---
 name: llm-caching
-description: Prompt-caching design rules for code that calls the Claude API. Use when writing or reviewing any code that builds LLM prompts, or when API costs/cache hit rates need improving.
+description: Prompt-caching design rules for code that calls the Claude API. Use when writing or reviewing any code that builds LLM prompts, or when API costs or cache hit rates need improving. Do NOT use for performance work unrelated to LLM API calls.
 ---
 
 # Prompt caching for LLM API code

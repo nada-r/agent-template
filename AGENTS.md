@@ -26,6 +26,7 @@ Entry point `src/server.ts` → routes in `src/routes/`. Tests use `app.inject()
 - Single test by name: `npx vitest run -t "returns ok"`
 - Prefer running single tests while iterating; run the full `make check` once at the end.
 - Add or update tests for any code you change, even if not asked.
+- Test what the code does, not what the mocks do. No tests for statically defined values.
 
 ## Code style
 
@@ -33,7 +34,7 @@ Entry point `src/server.ts` → routes in `src/routes/`. Tests use `app.inject()
 - No `any`. Exported functions declare explicit return types. (Enforced in `eslint.config.js`.)
 - Zod schemas at every external boundary (HTTP bodies, env, external APIs); infer types with `z.infer` — never hand-write a type a schema already defines.
 - `src/routes/echo.ts` is the canonical route pattern — copy its shape for new endpoints (steps: `.claude/skills/new-endpoint`).
-- Functions under ~50 lines, files under ~300 lines. Split when you exceed them.
+- Functions under ~50 lines, files under ~300 lines, changes under ~800 changed lines — split when you exceed them. New logic goes in new files, not into `src/server.ts`.
 - Fastify, NOT Express. PostgreSQL via Prisma, NOT SQLite (when a DB is added).
 - Names reveal intent and are searchable: `error` not `err`, `response` not `res`, `parseResult` not `parsed`. No abbreviations, no single letters outside trivial loop indices.
 - Formatting is Prettier's job (`make fix`) — never hand-align code.

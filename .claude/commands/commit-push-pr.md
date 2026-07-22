@@ -1,6 +1,7 @@
 ---
 description: Verify, commit, push, and open a PR for the current work
 disable-model-invocation: true
+allowed-tools: Bash(make check), Bash(git status), Bash(git diff:*), Bash(git add:*), Bash(git commit:*), Bash(git push), Bash(git checkout -b:*), Bash(gh pr create:*)
 ---
 
 Ship the current work:

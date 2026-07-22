@@ -14,6 +14,7 @@ _The line above inlines AGENTS.md at session start — Claude Code's `@` import.
 - After a series of edits, run `make check` and show the output — evidence, not assertion.
 - Before declaring a task done, use the `verifier` subagent. For review, use `code-reviewer` (fresh context, sees only the diff).
 - Use subagents for high-volume output (full test-suite runs, large searches) to keep this context clean.
+- After ~3 failed attempts at the same fix: stop, record the attempts in ERRORS.md, question the approach, and escalate to me.
 
 ## Memory protocol
 
@@ -28,5 +29,5 @@ _The line above inlines AGENTS.md at session start — Claude Code's `@` import.
 
 ## Self-improvement
 
-- When I correct you, or a review catches something you should have known: add one line to AGENTS.md (shared rules) or this file (Claude-only). Apply the pruning test — if the file grows past ~150 lines, cut the weakest line.
+- When I correct you, or a review catches something you should have known: add one line to AGENTS.md (shared rules) or this file (Claude-only). Apply the pruning test — budget ~1k tokens per file; when a new model releases, re-prune (smarter models need fewer instructions).
 - If a rule must hold 100% of the time, don't write prose — add a hook in `.claude/settings.json` instead.

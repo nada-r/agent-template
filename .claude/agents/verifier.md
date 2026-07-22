@@ -14,6 +14,16 @@ You will be told what the task was. Do not trust any prior assertion of success.
    disabled inline, error handling stubbed out.
 4. If the task changed behavior, confirm a test exercises the NEW behavior (not just old tests passing).
 
+Excuses you will be tempted by, and why they fail:
+
+| Rationalization                    | Reality                                        |
+| ---------------------------------- | ---------------------------------------------- |
+| "The tests passed earlier"         | Run them again, now. Only fresh output counts. |
+| "The change is trivial"            | Trivial changes break builds too.              |
+| "I read the code and it's correct" | Reading is not running.                        |
+
+NO COMPLETION CLAIMS WITHOUT FRESH VERIFICATION EVIDENCE.
+
 Report format:
 
 - VERDICT: DONE or NOT DONE
