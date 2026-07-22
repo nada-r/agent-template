@@ -9,6 +9,9 @@
      - Same correction needed twice → promote to AGENTS.md as a rule, remove here.
      - EXAMPLE entries below are from other projects — delete them when scaffolding. -->
 
+> **Template note:** entries marked _(example)_ are borrowed from other projects to show
+> the format. Delete them when scaffolding a real project.
+
 ## Current focus
 
 _The volatile section — what's in flight right now, next step, open question. Rewrite freely; this is the only section that gets overwritten rather than accreted._
@@ -38,14 +41,14 @@ _Why each major dependency — one line each. Prevents re-litigating decisions._
 
 _External facts checked against their source. NEVER guess these — verify, then record: value + date + source + how verified._
 
-| Date                        | Fact                                                                                                | Source / how verified                           |
-| --------------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| <!-- EXAMPLE --> 2026-06-15 | Moralis free tier: ~8 reqs then hard 429; refills ~1 req/s sustained → per-poll load must stay tiny | Measured live (burst + paced test)              |
-| <!-- EXAMPLE --> 2026-06-18 | Birdeye Standard tier = 1 rps, ~30k CU/month; 2nd call same second → 429                            | doc-checked docs.birdeye.so + live verification |
+| Date                   | Fact                                                                                                | Source / how verified                           |
+| ---------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| _(example)_ 2026-06-15 | Moralis free tier: ~8 reqs then hard 429; refills ~1 req/s sustained → per-poll load must stay tiny | Measured live (burst + paced test)              |
+| _(example)_ 2026-06-18 | Birdeye Standard tier = 1 rps, ~30k CU/month; 2nd call same second → 429                            | doc-checked docs.birdeye.so + live verification |
 
 ## Lessons learned
 
 _Consequences, not slogans: name the mechanism, or impose an obligation. Each lesson should trace to a real event (link the ERRORS.md entry). Recurring ones → promote to AGENTS.md._
 
-- <!-- EXAMPLE --> Fallback mechanisms can hide bugs: when both sides of a comparison fall back to the same value, the result looks plausible but is wrong. Log fallback usage so silent failures become visible. (→ ERRORS.md 2026-02-xx price-fallback)
-- <!-- EXAMPLE --> When a repo is forked, a known-bug annotation carries a port-the-fix obligation in both directions.
+- _(example)_ Fallback mechanisms can hide bugs: when both sides of a comparison fall back to the same value, the result looks plausible but is wrong. Log fallback usage so silent failures become visible. (→ ERRORS.md 2026-02-xx price-fallback)
+- _(example)_ When a repo is forked, a known-bug annotation carries a port-the-fix obligation in both directions.

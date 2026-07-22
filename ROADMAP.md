@@ -11,22 +11,24 @@
      The roadmap-check subagent diffs recent commits against this file.
      EXAMPLE items below are illustrative — delete when scaffolding. -->
 
+> **Template note:** items marked below are examples showing the format — delete when scaffolding.
+
 ## Now
 
 _1–3 items max. If an item sits here more than a few weeks, it is too big (split it) or not actually Now (move it)._
 
-- [ ] <!-- EXAMPLE --> Users can create an account and log in — appetite: small (~1-2wk).
+- [ ] _(example)_ Users can create an account and log in — appetite: small (~1-2wk).
       Verify: e2e test signup → login → `GET /api/me` returns the user; `make check` green.
 
 ## Next
 
-- <!-- EXAMPLE --> Password reset by email (needs a mail provider decision first — see docs/decisions/)
+- _(example)_ Password reset by email (needs a mail provider decision first — see docs/decisions/)
 
 ## Later
 
-- <!-- EXAMPLE --> Admin dashboard
-- <!-- EXAMPLE --> Rate limiting per API key
+- _(example)_ Admin dashboard
+- _(example)_ Rate limiting per API key
 
 ## Done
 
-- <!-- EXAMPLE --> 2026-07-20 — Template scaffolded: verification gate (`make check`), secret scanning, CI, agent config all working.
+- _(example)_ 2026-07-20 — Template scaffolded: verification gate (`make check`), secret scanning, CI, agent config all working.
