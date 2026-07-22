@@ -22,7 +22,7 @@ if a tool is missing, say so and use the fallback — never skip a category sile
 
 - Lockfile committed? CI uses `npm ci` (or frozen-lockfile equivalent)?
 - Recently added/bumped deps: `npm view <pkg> time --json | tail -5` — flag any version
-  published <48h before it was installed.
+  published <24h before it was installed.
 - `npm audit --audit-level=high` (or the ecosystem equivalent).
 - Dependabot/Renovate present, with a cooldown configured?
 

@@ -18,7 +18,7 @@ Do NOT graduate speculatively. If no threshold is hit, stop here.
 
 1. Create `scripts/kb.ts` using `node:sqlite` (built-in; Node 22.5+ needs
    `--experimental-sqlite`, stable on Node 24+ — check `node --version` first;
-   fall back to `better-sqlite3` only if needed, respecting the 48h cooldown).
+   fall back to `better-sqlite3` only if needed, respecting the 24h cooldown).
 2. Schema — two tables mirroring the markdown structure they replace:
 
 ```sql

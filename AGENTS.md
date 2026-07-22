@@ -76,7 +76,7 @@ language ("comprehensive", "robust", "successfully"). One read should be enough.
 - No one-off fix scripts left in the repo — delete them after use.
 - No infinite loops / long-lived polling in app code — use cron or scheduled jobs.
 - Fees, limits, and thresholds are explicit config (`.env.example`), never assumed zero.
-- Supply-chain cooldown: before adding or bumping a dependency, check its publish date (`npm view <pkg> time --json | tail -5`). Never install a version published less than 48h ago. (48h = manual-install floor; Dependabot's automated bumps wait 7 days.)
+- Supply-chain cooldown: before adding or bumping a dependency, check its publish date (`npm view <pkg> time --json | tail -5`). Never install a version published less than 24h ago. (24h = manual-install floor; Dependabot's automated bumps wait 7 days.)
 - Full security model: `SECURITY.md`. To check compliance, run the `security-audit` skill.
 
 ## Commit / PR instructions

@@ -14,6 +14,9 @@ vulnerability reporting) and the expected response time._
   documents every variable with no real values.
 - Three scan layers: pre-commit hook (gitleaks, regex fallback), `make secrets` on demand,
   gitleaks job in CI on every PR. Custom wallet rules live in `.gitleaks.toml`.
+- Why gitleaks over GitGuardian: local, no account, no network call per commit. GitGuardian
+  (ggshield) adds a team dashboard and 500+ detectors — worth adding as a second layer for
+  a team; overkill solo. The two stack without conflict.
 - Agents are denied reads of `.env` (`.claude/settings.json`) and instructed never to print it.
 - **If a secret lands in git history: rotate it FIRST, then rewrite history.** A pushed secret
   is compromised the moment it is pushed — cleaning the history does not un-leak it.
@@ -28,7 +31,7 @@ vulnerability reporting) and the expected response time._
 
 ## Supply chain
 
-- **Cooldown rule: never install a package version published less than 48 hours ago.**
+- **Cooldown rule: never install a package version published less than 24 hours ago.**
   Check before adding or bumping: `npm view <pkg> time --json | tail -5`.
   npm worms spread within hours of a compromised publish; the community usually catches them
   within a day or two. Waiting costs nothing — being in the first wave costs everything.

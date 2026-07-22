@@ -20,7 +20,7 @@ The heart of [`AGENTS.md`](AGENTS.md):
 - Never guess external facts. Verify data freshness — which DB, which env, is the process current.
 - `make check` green before anything is called done. Show the output.
 - Prose follows [Orwell's six rules](AGENTS.md#writing-style--prose-not-code). No "comprehensive", no "robust", no "successfully".
-- No package published less than 48h ago.
+- No package published less than 24h ago.
 
 ## Start a project
 
